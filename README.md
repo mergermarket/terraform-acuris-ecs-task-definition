@@ -32,6 +32,7 @@ This module creates a basic ECS Task Definition.
 * `container_definitions` - list of strings. Each string should be a JSON document describing a single container definition - see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html.
 * `task_role_arn` - The Amazon Resource Name for an IAM role for the task.
 * `volume` - Volume block map with 'name' and 'host_path'. See https://www.terraform.io/docs/providers/aws/r/ecs_task_definition.html#volume for more info.
+* `placement_constraint_on_demand_only` - Will restrict the taks to run only on on-demand container instances avoiding running on spot instances.
 
 ### Outputs
 
