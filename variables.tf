@@ -31,3 +31,18 @@ variable "network_mode" {
   type        = string
   default     = "bridge"
 }
+
+variable "volumes" {
+  type = map(object({
+    name = string
+    host_path = string
+  }))
+  default = {
+  }
+}
+
+variable "placement_constraint_on_demand_only" {
+  description = "Add placement constraint to only run on on-demand instances"
+  type        = bool
+  default     = false
+}
