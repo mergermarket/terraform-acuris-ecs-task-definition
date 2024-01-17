@@ -13,7 +13,7 @@ resource "aws_ecs_task_definition" "taskdef" {
     for_each = var.placement_constraint_on_demand_only == true ? [1] : []
     content {
         type       =  "memberOf"
-        expression = "attribute:lifecycle == 	on-demand" 
+        expression = "attribute:lifecycle == on-demand" 
     }
   }
 }
