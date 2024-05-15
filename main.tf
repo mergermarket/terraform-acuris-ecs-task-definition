@@ -4,6 +4,7 @@ resource "aws_ecs_task_definition" "taskdef" {
   task_role_arn         = var.task_role_arn
   execution_role_arn    = var.execution_role_arn
   network_mode          = var.network_mode
+  tags                  = var.tags
 
   volume {
     name      = lookup(var.volume, "name", "dummy")

@@ -46,3 +46,9 @@ variable "placement_constraint_on_demand_only" {
   type        = bool
   default     = false
 }
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource."
+  type        = map(string)
+  default = {}
+}
