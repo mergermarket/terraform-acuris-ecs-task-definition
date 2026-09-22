@@ -26,6 +26,12 @@ variable "volume" {
   default     = {}
 }
 
+variable "volume_configured_at_launch" {
+  description = "Name of volume to be configured at launch (i.e. in service)"
+  type        = string
+  default     = ""
+}
+
 variable "network_mode" {
   description = "The Docker networking mode to use for the containers in the task"
   type        = string
