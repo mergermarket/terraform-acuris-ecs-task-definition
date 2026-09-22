@@ -10,11 +10,20 @@ resource "aws_ecs_task_definition" "taskdef" {
     name      = lookup(var.volume, "name", "dummy")
     host_path = lookup(var.volume, "host_path", "/tmp/dummy_volume")
   }
+
+  dynamic "volume" {
+    for_each = length(var.volume_configured_at_launch) > 0 ? [var.volume_configured_at_launch] : []
+    content {
+      name                = volume.value
+      configure_at_launch = true
+    }
+  }
+
   dynamic "placement_constraints" {
     for_each = var.placement_constraint_on_demand_only == true ? [1] : []
     content {
         type       =  "memberOf"
-        expression = "attribute:lifecycle == on-demand" 
+        expression = "attribute:lifecycle == on-demand"
     }
   }
 }
